@@ -4,6 +4,7 @@ pragma solidity ^0.8.13;
 
 contract Mapping {
     
+    // Mapping--> here you can map every value item by key to get value or delate value
     // uniq data types, key value pair
     mapping (uint => string) myMap;
 
@@ -15,5 +16,16 @@ contract Mapping {
         delete myMap[key];
     }
 
-    // here you can map every value item by key to get value or delate value
+    
+
+    // struct --> here you can create a structure of data types and you can use it as a data type
+
+    struct Person {
+        string name ;
+        uint256 age;
+        bool hasDrivingLicense;
+    }
+
+    Person myPerson = Person("Rahul", 24, false);
+
 }
