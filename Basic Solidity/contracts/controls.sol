@@ -12,7 +12,7 @@ contract control {
             return false;
         } else if (myNumber > 5) {
             // do something
-            return false
+            return false;
         } else {
             // do something
             return true;
