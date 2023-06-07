@@ -22,7 +22,20 @@ contract loop {
     }
 
     // you need to pass that numbers while deploying the contract
-    
+
+
+    function sumWithWhileLoop() public view returns (uint256){
+        uint256 sum =0;
+        uint256 i=0;
+
+        while( i<numbers.length){
+
+            sum += numbers[i];
+            i++;
+        }
+
+        return sum;
+    }
 
 
 }
