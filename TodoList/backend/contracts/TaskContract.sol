@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.15;
+pragma solidity ^0.8.15;
 
 contract TaskContract {
 
   // Task : { id: 0, taskText: 'clean', isDeleted: false }
 
   // events
-  event AddTask(address recipient, uint taskId)
-  event DeleteTask( uint taskId, bool isDeleted)
+  event AddTask(address recipient, uint taskId);
+  event DeleteTask( uint taskId, bool isDeleted);
 
   // struct of Task
   struct Task {
@@ -32,7 +32,7 @@ contract TaskContract {
     // attatch task id to owner address
     // emit AddTask event
 
-    uint taskId = task.length;
+    uint taskId = tasks.length;
     tasks.push(Task(taskId, taskText, isDeleted));
     taskToOwner[taskId] = msg.sender;
     emit AddTask(msg.sender, taskId);
@@ -55,7 +55,7 @@ contract TaskContract {
 
     // temporary [{taskText:'hello', isDeleted:false,empty }]
 
-    for(uint i =0; i < tasks.kength; i++){
+    for(uint i =0; i < tasks.length; i++){
       if(taskToOwner[i] == msg.sender && tasks[i].isDeleted == false){
         temporary[counter] = tasks[i]; //push
         counter ++;
@@ -74,7 +74,7 @@ contract TaskContract {
 
   // in reality, we're nor deleting anything, we just set delated value via id == true and in our getmyTask filtering so in getmy task they are noy showned. bcz in blockchain you can't delate anything.
   
-  function DeleteTask(uint taskId, bool isDeleted) external {
+  function deleteTask(uint taskId, bool isDeleted) external {
 
     // check taskOwner[taskId] is eqal to login address
     // set the id value isdealted true
