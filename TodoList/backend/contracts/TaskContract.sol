@@ -4,6 +4,9 @@ pragma solidity ^0.8.15;
 contract TaskContract {
 
   // Task : { id: 0, taskText: 'clean', isDeleted: false }
+  // what we need to run this with frontend?
+  // DEPLOYED Contract address
+  // ABI
 
   // events
   event AddTask(address recipient, uint taskId);
