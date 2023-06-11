@@ -1,8 +1,9 @@
 import { IoMdAddCircle } from 'react-icons/io'
 
 import Navbar from './Navbar'
+import Task from './Task'
 
-const TodoList = ({input, setInput, addTask}) => <div className='w-[70%] bg-[#354ea3] py-4 px-9 rounded-[30px] overflow-y-scroll'>
+const TodoList = ({deleteTask, tasks, input, setInput, addTask}) => <div className='w-[70%] bg-[#354ea3] py-4 px-9 rounded-[30px] overflow-y-scroll'>
   <Navbar />
   <h2 className='text-4xl bolder text-white pb-8'>
     What&apos;s up, Kevin!
@@ -24,6 +25,16 @@ const TodoList = ({input, setInput, addTask}) => <div className='w-[70%] bg-[#35
   </form>
   <ul>
     {/* Loop through all tasks here using the Task component */}
+    {tasks.map(item => (
+      <Task
+      key = {item.id}
+      taskText = {item.taskText}
+      //deleteTask = {deleteTask}
+      // onClick deleteTask
+       onClick = {deleteTask(item.id)}  // you need to pass that onlick to the task component
+
+      />
+    ))}
   </ul>
 </div>
 
