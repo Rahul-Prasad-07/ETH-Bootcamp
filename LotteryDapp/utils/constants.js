@@ -1,5 +1,5 @@
-
 import abi from './lottery.json'
+
 export const contractAddress = '0xe122D5702850549370f93770776ca817d507f906'
 export const contractABI = abi.abi
 
