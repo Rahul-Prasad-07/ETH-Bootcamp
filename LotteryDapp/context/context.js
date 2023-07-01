@@ -9,11 +9,35 @@ export const AppProvider = ({ children }) => {
   const [address, setAddress] = useState(""); // keep trakc of the address
   const [web3, setWeb3] = useState(null); // keep track of the web3 instance
   const [lotteryContract, setLotteryContract] = useState(); // keep track state of lotteryContract bcz it can get updated
-  const [lotteryPot, setLotteryPot] = useState(); // keep track of the lottery pot
+  const [lotteryPot, setLotteryPot] = useState('0 ETH'); // keep track of the lottery pot
   const [lotteryPlayers, setLotteryPlayers] = useState([]); // keep track of the lottery players
-  const [lastWinner, setLastWinner] = useState(); // keep track of the last winner
+  const [lastWinner, setLastWinner] = useState([]); // keep track of the last winner
   const [lotteryId, setLotteryId] = useState(); // keep track of the lottery id
  
+ useEffect (()=>{
+  updateLottery()
+ },[lotteryContract])
+ 
+// Update Lottery Card dynamically using our smart contract: use useEffect bcz whenever the lotteryContract changes, we want to update the lottery pot
+ const updateLottery = async ()=>{
+
+  if(lotteryContract){
+    const pot = await lotteryContract.methods.getBlance().call(); //get in wei
+    setLotteryPot(web3.utils.fromWei(pot, 'ether') + ' ETH');
+
+    // update players
+    setLotteryPlayers(await lotteryContract.methods.getPlayers().call())
+    console.log(lotteryPlayers);
+    
+    // update last winner
+    setLastWinner(await lotteryContract.methods.getWinners().call())
+    console.log([...lastWinner], "last winner" );
+  }
+ 
+
+}
+
+
   // connect wallet
   const connectWallet = async () => {
     if (window !== "undefined" &&  window.ethereum !== "undefined") {
@@ -60,9 +84,29 @@ export const AppProvider = ({ children }) => {
       
     }
   }
-  
+
+  // Pick Winner
+  const pickWinner = async ()=>{
+     
+    try {
+      let transction = await lotteryContract.methods.pickWinner().send({
+        from:address,
+        gas:3000000,
+        gasPrice:null
+      })
+      console.log(transction);
+      updateLottery()  // when pickwinner func call, it checks if you are owner then able to call this func and then update the lottery card and change details
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+
+ 
   return (
-    <appContext.Provider value={{ connectWallet, address, enterLottery }}>
+    <appContext.Provider value={{ connectWallet, address, enterLottery, lotteryPot, lotteryPlayers, pickWinner, lastWinner }}>
       {children}
     </appContext.Provider>
   );
