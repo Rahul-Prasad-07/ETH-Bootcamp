@@ -3,6 +3,7 @@ import { useContext } from "react";
 
 import { TransactionContext } from "../context/context";
 import styles from "../styles/Navbar.module.css";
+import { shortendAddress } from "../utils/shortendAddress";
 
 const Navbar = () => {
   const {connectWallet, currentAccount} = useContext(TransactionContext);
@@ -16,8 +17,8 @@ const Navbar = () => {
         {currentAccount? (
           <div className={styles.actionsContainer}>
           <p>
-            Hello, <span className={styles.accentColor}>
-              UserAddress!</span>👋🏻
+            Hello, <span className={styles.accentColor} >
+               {shortendAddress(currentAccount)}</span>👋🏻
           </p>
           <ChevronDownIcon className={styles.arrowDownIcon } />
           <div className={styles.avatarContainer}>
