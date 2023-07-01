@@ -5949,6 +5949,13 @@
     "filelist" "^1.0.1"
     "minimatch" "^3.0.4"
 
+"javascript-time-ago@^2.5.7":
+  "integrity" "sha512-pQ8mNco/9g9TqWXWWjP0EWl6i/lAQScOyEeXy5AB+f7MfLSdgyV9BJhiOD1zrIac/lrxPYOWNbyl/IW8CW5n0A=="
+  "resolved" "https://registry.npmjs.org/javascript-time-ago/-/javascript-time-ago-2.5.9.tgz"
+  "version" "2.5.9"
+  dependencies:
+    "relative-time-format" "^1.1.6"
+
 "jest-changed-files@^27.5.1":
   "integrity" "sha512-buBLMiByfWGCoMsLLzGUUSpAmIAGnbR2KJoMN10ziLhOLvP4e0SlypHnAel8iqQXTrcbmfEY9sSqae5sgUsTvw=="
   "resolved" "https://registry.npmjs.org/jest-changed-files/-/jest-changed-files-27.5.1.tgz"
@@ -8308,6 +8315,11 @@
   "resolved" "https://registry.npmjs.org/relateurl/-/relateurl-0.2.7.tgz"
   "version" "0.2.7"
 
+"relative-time-format@^1.1.6":
+  "integrity" "sha512-aCv3juQw4hT1/P/OrVltKWLlp15eW1GRcwP1XdxHrPdZE9MtgqFpegjnTjLhi2m2WI9MT/hQQtE+tjEWG1hgkQ=="
+  "resolved" "https://registry.npmjs.org/relative-time-format/-/relative-time-format-1.1.6.tgz"
+  "version" "1.1.6"
+
 "renderkid@^3.0.0":
   "integrity" "sha512-q/7VIQA8lmM1hF+jn+sFSPWGlMkSAeNYcPLmDQx2zzuiDfaLrOmumR8iaUKlenFgh0XRPIUeSPlH3A+AW3Z5pg=="
   "resolved" "https://registry.npmjs.org/renderkid/-/renderkid-3.0.0.tgz"
@@ -9315,9 +9327,9 @@
     "is-typedarray" "^1.0.0"
 
 "typescript@^3.2.1 || ^4", "typescript@>= 2.7", "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta":
-  "integrity" "sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA=="
-  "resolved" "https://registry.npmjs.org/typescript/-/typescript-5.1.6.tgz"
-  "version" "5.1.6"
+  "integrity" "sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g=="
+  "resolved" "https://registry.npmjs.org/typescript/-/typescript-4.9.5.tgz"
+  "version" "4.9.5"
 
 "unbox-primitive@^1.0.2":
   "integrity" "sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw=="

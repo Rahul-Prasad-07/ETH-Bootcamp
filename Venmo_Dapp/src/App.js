@@ -1,22 +1,22 @@
-import Navbar from './components/Navbar';
-import styles from './styles/App.module.css';
-import TransactionForm from './components/transaction/TransactionForm.jsx';
-
-import './App.css';
+import styles from './styles/App.module.css'
+import Navbar from './components/Navbar'
+import ActivityCard from "./components/activity/ActivityCard"
+import TransactionForm from './components/transaction/TransactionForm'
 
 function App() {
   return (
     <div className={styles.wrapper}>
       <header>
-        <Navbar/>
+        <Navbar />
       </header>
-
-      <main className={styles.mainConatiner}>
-        <div className={styles.activityContainer}>{/* Activity */}</div>
-        <div className={styles.sideConatiner}>
-          <TransactionForm/>
+      <main className={styles.mainContainer}>
+        <div className={styles.activityContainer}>
+          <ActivityCard />
         </div>
-        </main>
+        <div className={styles.sideContainer}>
+          <TransactionForm />
+        </div>
+      </main>
     </div>
   );
 }

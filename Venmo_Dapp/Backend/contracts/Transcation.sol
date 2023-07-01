@@ -44,6 +44,10 @@ contract Transcation {
         return transcations;
     }
 
+     function getTransactionCount() public view returns (uint256) {
+        return transcationCount;
+    }
+
     //view keyword means that func can only be used to read data from blockchain
     // therefor no ether needed to run the functions
 
