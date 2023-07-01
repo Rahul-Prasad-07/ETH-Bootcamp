@@ -1,5 +1,7 @@
-import style from '../styles/TableRow.module.css'
 import truncateEthAddress from 'truncate-eth-address'
+
+import style from '../styles/TableRow.module.css'
+
 const TableRow = ({ player }) => {
   return (
     <div className={style.wrapper}>

@@ -84,7 +84,6 @@ export const AppProvider = ({ children }) => {
       
     }
   }
-
   // Pick Winner
   const pickWinner = async ()=>{
      
@@ -101,10 +100,6 @@ export const AppProvider = ({ children }) => {
       console.log(error);
     }
   }
-
-
-
- 
   return (
     <appContext.Provider value={{ connectWallet, address, enterLottery, lotteryPot, lotteryPlayers, pickWinner, lastWinner }}>
       {children}
