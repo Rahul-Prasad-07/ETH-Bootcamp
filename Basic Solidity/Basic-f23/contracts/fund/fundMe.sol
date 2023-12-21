@@ -17,10 +17,23 @@ contract FundMe{
 
         require(msg.value.getConvertsionRateofEthinUsd() >=  minimumUsd, "didn't send enough ETH" );  //.getConvertsionRateofEthinUsd(XXXX,YYYY) : here first value xx is passed by msg.value and secound YYY pases in ()
         funders.push(msg.sender); // keep trake of senders
-        addressToAmountFunded[msg.sender] = addressToAmountFunded[msg.sender] + msg.value; // keep track of senders with value
+        addressToAmountFunded[msg.sender]  += msg.value; // keep track of senders with value
 
     }
 
-    function withdraw() public{}
+    function withdraw() public{
+
+        for(uint256 funderIndex=0; funderIndex < funders.length; funderIndex++){
+            address funder = funders[funderIndex]; // get and iterate over funders array
+            addressToAmountFunded[funder] = 0;  // removed amount from funder 
+
+            // reset array
+            funders = new address[](0);
+            
+            // transfer assets
+            (bool callSucess,) = payable(msg.sender).call{value:address(this).balance}("");
+            require(callSucess, "call failed");
+        }
+    } 
 
 }
