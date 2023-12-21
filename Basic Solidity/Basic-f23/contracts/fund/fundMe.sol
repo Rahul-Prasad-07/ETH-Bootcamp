@@ -4,7 +4,7 @@ pragma solidity ^0.8.19;
  
 import {PriceConverter} from "./PriceConverter.sol";
 
-// sepolia deployed contract address with 0.005 ETH :0x5F137f2A47c5053e027C587CddC3767421A8D1f2 --> befor withdrawal
+// sepolia deployed contract address : 0x8942f9F9f7066082B37dd895D3b944B9Ae7040E6 --> With withdrawal-onlyOwner
 contract FundMe{
 
     using  PriceConverter for uint256;
@@ -12,6 +12,11 @@ contract FundMe{
     uint256 public minimumUsd = 5 * 1e18; // we need to update this in decimal bcz eth price also comes with decimals
     address[] public funders;
     mapping(address => uint256) public addressToAmountFunded;
+    address public owner;
+
+    constructor(){
+        owner = msg.sender;
+    }
 
     function fund() public payable {
 
@@ -21,7 +26,7 @@ contract FundMe{
 
     }
 
-    function withdraw() public{
+    function withdraw() public onlyOwner{
 
         for(uint256 funderIndex=0; funderIndex < funders.length; funderIndex++){
             address funder = funders[funderIndex]; // get and iterate over funders array
@@ -34,6 +39,11 @@ contract FundMe{
             (bool callSucess,) = payable(msg.sender).call{value:address(this).balance}("");
             require(callSucess, "call failed");
         }
+    } 
+
+    modifier onlyOwner(){
+        require(msg.sender == owner, "Sender is not owner!");
+        _;
     } 
 
 }
