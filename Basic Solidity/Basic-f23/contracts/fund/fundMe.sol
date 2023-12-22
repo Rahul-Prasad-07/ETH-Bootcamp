@@ -4,7 +4,7 @@ pragma solidity ^0.8.19;
  
 import {PriceConverter} from "./PriceConverter.sol";
 
-// sepolia deployed contract address : 0x8942f9F9f7066082B37dd895D3b944B9Ae7040E6 --> With withdrawal-onlyOwner
+// sepolia deployed contract address :0xd0b936F61f92d508065b0d97be3Ed3529E7A3A57(0.02ETH) --> With recive & Fallback
 
 //810086 
 //790116 --> 766549 --> 741431
