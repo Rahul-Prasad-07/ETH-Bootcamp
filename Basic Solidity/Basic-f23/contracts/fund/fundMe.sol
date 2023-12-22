@@ -7,7 +7,10 @@ import {PriceConverter} from "./PriceConverter.sol";
 // sepolia deployed contract address : 0x8942f9F9f7066082B37dd895D3b944B9Ae7040E6 --> With withdrawal-onlyOwner
 
 //810086 
-//790116 --> 766549
+//790116 --> 766549 --> 741431
+
+
+error NotOwner();
 contract FundMe{
 
     using  PriceConverter for uint256;
@@ -47,7 +50,10 @@ contract FundMe{
     } 
 
     modifier onlyOwner(){
-        require(msg.sender == i_owner, "Sender is not owner!");
+        //require(msg.sender == i_owner, "Sender is not owner!");
+        if(msg.sender != i_owner){
+            revert NotOwner();
+        }
         _;
     } 
 
